@@ -13,7 +13,13 @@ public class Main {
             System.out.println("2. เข้าระบบพนักงาน");
             System.out.println("3. ออกจากระบบ");
             System.out.print("เลือกเมนู: ");
-            int choice = sc.nextInt();
+            int choice;
+            try {
+                choice = Integer.parseInt(sc.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println("❌ กรุณาใส่ตัวเลขเท่านั้น");
+                continue;
+            }
 
             switch (choice) {
                 case 1 -> new Member(db).showMenu();
